@@ -1,0 +1,44 @@
+import React, {usestate} from 'react';
+import {view, text, touchableOpacity, styleSheet} from
+
+export default function App(){
+//CRIANDO A VARIAVEL PARA ARMAZENAR A QUANTODADE DE CLICKS 
+const [Pontos, Setpontos] = () => {
+  Setpontos(pontos + 1);
+}
+//PARTE VISUAL DO APLICATIVO 
+Return(
+<view style={styles.container}>
+//exibir a quantidade de cookies na tela 
+<Text style=(styles.text)>Cookies: {cookies}</text>
+{//botao para cliclar e aumentar os cookies//}
+<TouchableOpacity style={styles.button} onPress={handleClick}>
+  <Text style={styles. buttonText}>Clique para ganhar cookies!</text>
+  </TouchableOpacity>
+</View>
+);
+}
+
+//Estilos para os componentes de interface
+const style = StyleSheet.create({
+  container: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '#f8f8f8',
+  },
+  text: {
+    fontSize: 24
+    marginBottom: 20,
+  },
+  button: {
+  backgroundColor: '#ff9800',
+  padding: 15,
+  borderRadius: 10,
+  },
+  buttonText:{
+    frontSize: 18,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+});
