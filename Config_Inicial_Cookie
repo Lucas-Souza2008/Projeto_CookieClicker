@@ -1,25 +1,49 @@
 import React, {usestate} from 'react';
-import {view, text, touchableOpacity, styleSheet} from
+import {view, text, touchableOpacity, styleSheet} from 'react-native';
+
 
 export default function App(){
-//CRIANDO A VARIAVEL PARA ARMAZENAR A QUANTODADE DE CLICKS 
-const [Pontos, Setpontos] = () => {
-  Setpontos(pontos + 1);
-}
-//PARTE VISUAL DO APLICATIVO 
-Return(
-<view style={styles.container}>
-//exibir a quantidade de cookies na tela 
-<Text style=(styles.text)>Cookies: {cookies}</text>
-{//botao para cliclar e aumentar os cookies//}
-<TouchableOpacity style={styles.button} onPress={handleClick}>
-  <Text style={styles. buttonText}>Clique para ganhar cookies!</text>
-  </TouchableOpacity>
+//CRIANDO ESTADO PARA ARMAZENAR QUANTIDADE DE COOKIES 
+const [cookies, SetCookies] = useState(0);
+
+
+//v0.2
+const [clickPower, setClickPower] = useState(1);
+
+
+//FUNÇÃO CHAMADA QUANDO BOTÃO PRESSIONADO
+  const hqandleClick = () => {
+//ADICIONANDO CLICKPOWER PARA CONTAGEM v0.2
+setCookies(cookies + clickPower); //INCREMENTA CONTAGEM DE COOKIES
+};
+
+
+//FUNÇÃO PARA COMPRAR UM UPGRADE E AUMENTAR PODER DE CLIQUE
+const buyUpgrade = () => {
+if (cookies >=10) {  //CUSTA 10 COOKIES PARA MELHORAR CLIQUE 
+  setCookies(Cookies - 10);
+  setClickPower(clickPower + 1);
+    }
+};
+
+
+return (
+<View style={style.container}>
+{  //EXIBE QUANTIDADE DE COOKIES NA TELA}
+<Text style={styles.buttonText}>Clique para ganhar cookies!</text>
+</TouchableOpacity>
+
+
+//ADICIONA BOTAO PARA UPGRADE v0.2
+<TouchableOpacity style={style.upgradeByutton} onPress={buyUpgrade}>
+<text style={styles.buttonText}>Upgrade ("+1 por clique") - custa 10 cookies</text>
+</TouchableOpacity>
 </View>
-);
+  );
 }
 
-//Estilos para os componentes de interface
+
+//ESTILOS PARA OS COMPONENTES DE INTERFACE
 const style = StyleSheet.create({
   container: {
   flex: 1,
